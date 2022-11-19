@@ -1,10 +1,27 @@
 #!/usr/bin/env bash
-# install nginx to create html pages - redirection
-REDIR="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
-SRC="/etc/nginx/sites-available/default"
+# Configures an Nginx server so that /redirect_me redirects to another page.
+# The redirection is configured as a "301 Moved Permanently"
+
 apt-get -y update
 apt-get -y install nginx
-sudo service nginx start
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
-sudo sed -i "30i $REDIR" $SRC
+
+sudo chown -R "$USER":"$USER" /var/www/html/index.nginx-debian.html
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/default
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+redirection=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+}"
+
+echo -e "$redirection" > /etc/nginx/sites-available/default
+
 sudo service nginx restart

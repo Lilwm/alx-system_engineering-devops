@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+""" accepts employee IDs and returns todo list"""
 
 import json
 import requests
-""" accepts employee IDs and returns todo list"""
 
 
 def gather_data_from_an_API(employee_id):

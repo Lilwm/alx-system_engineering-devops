@@ -3,13 +3,10 @@
 import json
 import requests
 
-'''
-This module contains functions to gather information about employee TODO list progress and export the data in JSON format.
-'''
 
 def gather_data_from_an_API(employee_id):
     """
-    This function accepts an integer (employee ID) as a parameter and returns information about employee's TODO list progress.
+    accepts employee ID and returns information about employee's TODO list progress.
 
     :param employee_id: ID of the employee
     :return: information about employee's TODO list progress
@@ -38,10 +35,10 @@ def gather_data_from_an_API(employee_id):
         completed_tasks_count = len(completed_tasks)
         # Return employee TODO list progress
         return {
-            "employee_name": employee_name,
-            "completed_tasks_count": completed_tasks_count,
-            "total_tasks": total_tasks,
-            "completed_tasks": completed_tasks
+                "employee_name": employee_name,
+                "completed_tasks_count": completed_tasks_count,
+                "total_tasks": total_tasks,
+                "completed_tasks": completed_tasks
         }
     else:
         # If API call was not successful, return None
@@ -49,7 +46,7 @@ def gather_data_from_an_API(employee_id):
 
 def export_data_to_json(employee_id):
     """
-    This function accepts an integer (employee ID) as a parameter and exports information about employee's TODO list progress in JSON format.
+    Accepts employee ID and exports the employee's TODO list progress in JSON format.
 
     :param employee_id: ID of the employee
     :return: None
@@ -66,7 +63,8 @@ def export_data_to_json(employee_id):
         completed_tasks = data["completed_tasks"]
         # Loop through completed tasks
         for task in completed_tasks:
-            task_data.append({"username": employee_name, "task": task["title"], "completed": task["completed"]})
+            task_data.append({"username": employee_name, "task": task["title"], 
+                "completed": task["completed"]})
         # Create a dictionary to store all task data
         todo_data = {employee_id: task_data}
         # Export data to JSON file

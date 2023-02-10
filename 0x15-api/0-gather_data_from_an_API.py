@@ -1,14 +1,18 @@
+#!/usr/bin/python3
+"""" gets employees tasks from REST API"""
 import requests
 import sys
 
-def todo_list_progress(employee_id):
+
+def todo_list_progress(user_id):
     # Get the employee information
-    employee_response = requests.get(f"https://jsonplaceholder.typicode.com/users/{employee_id}")
-    employee_data = employee_response.json()
-    employee_name = employee_data["name"]
-    
+    emp_url = "https://jsonplaceholder.typicode.com/users/" + user_id
+    employee_response = requests.get(emp_url)
+    employee_name = employee_response.json().get("name")
+
     # Get the TODO list for the employee
-    todo_response = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}")
+    todo_url = "https://jsonplaceholder.typicode.com/users/" user_id + "/todos"
+    todo_response = requests.get(todo_url)
     todo_data = todo_response.json()
     
     # Count the number of completed tasks

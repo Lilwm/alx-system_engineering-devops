@@ -65,7 +65,7 @@ def export_data_to_json(employee_id):
         completed_tasks = data["completed_tasks"]
         # Loop through completed tasks
         for task in completed_tasks:
-            task_data.append({"username": employee_name, "task": task["title"], 
+            task_data.append({"username": employee_name, "task": task["title"],
                 "completed": task["completed"]})
         # Create a dictionary to store all task data
         todo_data = {employee_id: task_data}

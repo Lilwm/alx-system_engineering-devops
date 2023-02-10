@@ -7,7 +7,7 @@ import requests
 
 def gather_data_from_an_API(employee_id):
     """
-    accepts employee ID and returns information about employee's TODO list progress.
+    accepts employee ID and returns employee's TODO list progress.
 
     :param employee_id: ID of the employee
     :return: information about employee's TODO list progress
@@ -45,9 +45,10 @@ def gather_data_from_an_API(employee_id):
         # If API call was not successful, return None
         return None
 
+
 def export_data_to_json(employee_id):
     """
-    Accepts employee ID and exports the employee's TODO list progress in JSON format.
+    Accepts employee ID and exports the TODO list progress in JSON format.
 
     :param employee_id: ID of the employee
     :return: None
@@ -71,4 +72,3 @@ def export_data_to_json(employee_id):
         # Export data to JSON file
         with open(f"{employee_id}.json", "w") as file:
             json.dump
-

@@ -13,7 +13,7 @@ def todo_list_progress(user_id):
     # Get the TODO list for the employee
     todo_url = "https://jsonplaceholder.typicode.com/users/" user_id + "/todos"
     todo_response = requests.get(todo_url)
-    todo_data = todo_response.json()    
+    todo_data = todo_response.json()
     # Count the number of completed tasks
     completed_tasks = [task for task in todo_data if task["completed"] is True]
     total_tasks = len(todo_data)

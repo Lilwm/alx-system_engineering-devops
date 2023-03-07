@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """query top 10 popular on a subreddit"""
 import requests
 

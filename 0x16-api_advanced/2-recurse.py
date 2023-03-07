@@ -4,7 +4,7 @@ import requests
 
 
 def recurse(subreddit, hot_list=[], after=None):
-    # Define the API endpoint URL with pagination
+    """Define the API endpoint URL with pagination"""
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     if after:
         url += f"?after={after}"

@@ -4,11 +4,9 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """queries a subreddit and returns no of subs
-    Args:
-        Subreddit: subreddit to check
-    Returns:
-        No of subs
+    """
+    Queries the Reddit API and returns the number of total subscribers for a
+    given subreddit.
     """
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     header = {"User-Agent": "Mozilla/5.0"}

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" a function that queries a subreddit and returns no of subs"""
+"""
+a function that queries a subreddit andreturns no of subs
+"""
 import requests
 
 

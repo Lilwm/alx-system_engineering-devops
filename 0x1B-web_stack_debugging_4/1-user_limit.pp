@@ -10,4 +10,4 @@ exec {'replace-1':
 exec {'replace-2':
   provider => shell,
   command  => 'sudo sed -i "s/nofile 4/nofile 40000/" /etc/security/limits.conf',
-} 
+}
